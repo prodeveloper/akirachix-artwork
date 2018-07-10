@@ -19,6 +19,15 @@ class Artwork(Model):
 
 def initialize():
     try:
-        Artwork.create_table()
+        Artwork.create_table(safe=True)
     except OperationalError:
+        pass
+    try:
+        Artwork.create(
+            name="monkey_singing",
+            description="Awesome Artistic Monkey",
+            thumbnail_link="static/music-3507317_640.jpg",
+            fullimage_link="static/music-3507317_1920.jpg"
+            )
+    except IntegrityError:
         pass
