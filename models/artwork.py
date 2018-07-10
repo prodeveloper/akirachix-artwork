@@ -31,3 +31,12 @@ def initialize():
             )
     except IntegrityError:
         pass
+    try:
+            Artwork.create(
+                name="mercedes",
+                description="The car with an awesome interior",
+                thumbnail_link="static/mercedes-3510327_640.jpg",
+                fullimage_link="static/mercedes-3510327_1920.jpg"
+            )
+    except IntegrityError as e:
+        pass
